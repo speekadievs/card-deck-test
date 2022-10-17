@@ -1,0 +1,450 @@
+[
+  {
+    "value": "ACE",
+    "suit": "SPADES",
+    "code": "AS",
+    "decks": [
+      "SHORT",
+      "FULL"
+    ]
+  },
+  {
+    "value": "2",
+    "suit": "SPADES",
+    "code": "2S",
+    "decks": [
+      "SHORT"
+    ]
+  },
+  {
+    "value": "3",
+    "suit": "SPADES",
+    "code": "3S",
+    "decks": [
+      "SHORT"
+    ]
+  },
+  {
+    "value": "4",
+    "suit": "SPADES",
+    "code": "4S",
+    "decks": [
+      "SHORT"
+    ]
+  },
+  {
+    "value": "5",
+    "suit": "SPADES",
+    "code": "5S",
+    "decks": [
+      "SHORT"
+    ]
+  },
+  {
+    "value": "6",
+    "suit": "SPADES",
+    "code": "6S",
+    "decks": [
+      "SHORT"
+    ]
+  },
+  {
+    "value": "7",
+    "suit": "SPADES",
+    "code": "7S",
+    "decks": [
+      "SHORT",
+      "FULL"
+    ]
+  },
+  {
+    "value": "8",
+    "suit": "SPADES",
+    "code": "8S",
+    "decks": [
+      "SHORT",
+      "FULL"
+    ]
+  },
+  {
+    "value": "9",
+    "suit": "SPADES",
+    "code": "9S",
+    "decks": [
+      "SHORT",
+      "FULL"
+    ]
+  },
+  {
+    "value": "10",
+    "suit": "SPADES",
+    "code": "10S",
+    "decks": [
+      "SHORT",
+      "FULL"
+    ]
+  },
+  {
+    "value": "JACK",
+    "suit": "SPADES",
+    "code": "JS",
+    "decks": [
+      "SHORT",
+      "FULL"
+    ]
+  },
+  {
+    "value": "QUEEN",
+    "suit": "SPADES",
+    "code": "QS",
+    "decks": [
+      "SHORT",
+      "FULL"
+    ]
+  },
+  {
+    "value": "KING",
+    "suit": "SPADES",
+    "code": "KS",
+    "decks": [
+      "SHORT",
+      "FULL"
+    ]
+  },
+  {
+    "value": "ACE",
+    "suit": "CLUBS",
+    "code": "AC",
+    "decks": [
+      "SHORT",
+      "FULL"
+    ]
+  },
+  {
+    "value": "2",
+    "suit": "CLUBS",
+    "code": "2C",
+    "decks": [
+      "SHORT"
+    ]
+  },
+  {
+    "value": "3",
+    "suit": "CLUBS",
+    "code": "3C",
+    "decks": [
+      "SHORT"
+    ]
+  },
+  {
+    "value": "4",
+    "suit": "CLUBS",
+    "code": "4C",
+    "decks": [
+      "SHORT"
+    ]
+  },
+  {
+    "value": "5",
+    "suit": "CLUBS",
+    "code": "5C",
+    "decks": [
+      "SHORT"
+    ]
+  },
+  {
+    "value": "6",
+    "suit": "CLUBS",
+    "code": "6C",
+    "decks": [
+      "SHORT"
+    ]
+  },
+  {
+    "value": "7",
+    "suit": "CLUBS",
+    "code": "7C",
+    "decks": [
+      "SHORT",
+      "FULL"
+    ]
+  },
+  {
+    "value": "8",
+    "suit": "CLUBS",
+    "code": "8C",
+    "decks": [
+      "SHORT",
+      "FULL"
+    ]
+  },
+  {
+    "value": "9",
+    "suit": "CLUBS",
+    "code": "9C",
+    "decks": [
+      "SHORT",
+      "FULL"
+    ]
+  },
+  {
+    "value": "10",
+    "suit": "CLUBS",
+    "code": "10C",
+    "decks": [
+      "SHORT",
+      "FULL"
+    ]
+  },
+  {
+    "value": "JACK",
+    "suit": "CLUBS",
+    "code": "JC",
+    "decks": [
+      "SHORT",
+      "FULL"
+    ]
+  },
+  {
+    "value": "QUEEN",
+    "suit": "CLUBS",
+    "code": "QC",
+    "decks": [
+      "SHORT",
+      "FULL"
+    ]
+  },
+  {
+    "value": "KING",
+    "suit": "CLUBS",
+    "code": "KC",
+    "decks": [
+      "SHORT",
+      "FULL"
+    ]
+  },
+  {
+    "value": "ACE",
+    "suit": "DIAMONDS",
+    "code": "AD",
+    "decks": [
+      "SHORT",
+      "FULL"
+    ]
+  },
+  {
+    "value": "2",
+    "suit": "DIAMONDS",
+    "code": "2D",
+    "decks": [
+      "SHORT"
+    ]
+  },
+  {
+    "value": "3",
+    "suit": "DIAMONDS",
+    "code": "3D",
+    "decks": [
+      "SHORT"
+    ]
+  },
+  {
+    "value": "4",
+    "suit": "DIAMONDS",
+    "code": "4D",
+    "decks": [
+      "SHORT"
+    ]
+  },
+  {
+    "value": "5",
+    "suit": "DIAMONDS",
+    "code": "5D",
+    "decks": [
+      "SHORT"
+    ]
+  },
+  {
+    "value": "6",
+    "suit": "DIAMONDS",
+    "code": "6D",
+    "decks": [
+      "SHORT"
+    ]
+  },
+  {
+    "value": "7",
+    "suit": "DIAMONDS",
+    "code": "7D",
+    "decks": [
+      "SHORT",
+      "FULL"
+    ]
+  },
+  {
+    "value": "8",
+    "suit": "DIAMONDS",
+    "code": "8D",
+    "decks": [
+      "SHORT",
+      "FULL"
+    ]
+  },
+  {
+    "value": "9",
+    "suit": "DIAMONDS",
+    "code": "9D",
+    "decks": [
+      "SHORT",
+      "FULL"
+    ]
+  },
+  {
+    "value": "10",
+    "suit": "DIAMONDS",
+    "code": "10D",
+    "decks": [
+      "SHORT",
+      "FULL"
+    ]
+  },
+  {
+    "value": "JACK",
+    "suit": "DIAMONDS",
+    "code": "JD",
+    "decks": [
+      "SHORT",
+      "FULL"
+    ]
+  },
+  {
+    "value": "QUEEN",
+    "suit": "DIAMONDS",
+    "code": "QD",
+    "decks": [
+      "SHORT",
+      "FULL"
+    ]
+  },
+  {
+    "value": "KING",
+    "suit": "DIAMONDS",
+    "code": "KD",
+    "decks": [
+      "SHORT",
+      "FULL"
+    ]
+  },
+  {
+    "value": "ACE",
+    "suit": "HEARTS",
+    "code": "AH",
+    "decks": [
+      "SHORT",
+      "FULL"
+    ]
+  },
+  {
+    "value": "2",
+    "suit": "HEARTS",
+    "code": "2H",
+    "decks": [
+      "SHORT"
+    ]
+  },
+  {
+    "value": "3",
+    "suit": "HEARTS",
+    "code": "3H",
+    "decks": [
+      "SHORT"
+    ]
+  },
+  {
+    "value": "4",
+    "suit": "HEARTS",
+    "code": "4H",
+    "decks": [
+      "SHORT"
+    ]
+  },
+  {
+    "value": "5",
+    "suit": "HEARTS",
+    "code": "5H",
+    "decks": [
+      "SHORT"
+    ]
+  },
+  {
+    "value": "6",
+    "suit": "HEARTS",
+    "code": "6H",
+    "decks": [
+      "SHORT"
+    ]
+  },
+  {
+    "value": "7",
+    "suit": "HEARTS",
+    "code": "7H",
+    "decks": [
+      "SHORT",
+      "FULL"
+    ]
+  },
+  {
+    "value": "8",
+    "suit": "HEARTS",
+    "code": "8H",
+    "decks": [
+      "SHORT",
+      "FULL"
+    ]
+  },
+  {
+    "value": "9",
+    "suit": "HEARTS",
+    "code": "9H",
+    "decks": [
+      "SHORT",
+      "FULL"
+    ]
+  },
+  {
+    "value": "10",
+    "suit": "HEARTS",
+    "code": "10H",
+    "decks": [
+      "SHORT",
+      "FULL"
+    ]
+  },
+  {
+    "value": "JACK",
+    "suit": "HEARTS",
+    "code": "JH",
+    "decks": [
+      "SHORT",
+      "FULL"
+    ]
+  },
+  {
+    "value": "QUEEN",
+    "suit": "HEARTS",
+    "code": "QH",
+    "decks": [
+      "SHORT",
+      "FULL"
+    ]
+  },
+  {
+    "value": "KING",
+    "suit": "HEARTS",
+    "code": "KH",
+    "decks": [
+      "SHORT",
+      "FULL"
+    ]
+  }
+]
