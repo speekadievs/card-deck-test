@@ -1,13 +1,14 @@
 import { DateTime } from 'luxon'
 import { BaseModel, column, HasMany, hasMany } from '@ioc:Adonis/Lucid/Orm'
 import Card from 'App/Models/Card'
+import { DeckType } from '@ioc:Repositories/DeckRepository'
 
 export default class Deck extends BaseModel {
   @column({ isPrimary: true })
   public id: string
 
   @column()
-  public type: 'FULL' | 'SHORT'
+  public type: DeckType
 
   @column()
   public shuffled: boolean

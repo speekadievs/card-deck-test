@@ -3,8 +3,11 @@ import { ApplicationContract } from '@ioc:Adonis/Core/Application'
 export default class AppProvider {
   constructor(protected app: ApplicationContract) {}
 
-  public register() {
-    // Register your own bindings
+  public async register() {
+    const DeckModel = (await import('App/Models/Deck')).default
+    const DeckRepository = (await import('App/Repositories/DeckRepository')).default
+
+    this.app.container.bind('Repositories/DeckRepository', () => new DeckRepository(DeckModel))
   }
 
   public async boot() {
