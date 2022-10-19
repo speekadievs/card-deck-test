@@ -7,7 +7,7 @@
 
 import type { Config } from '@japa/runner'
 import TestUtils from '@ioc:Adonis/Core/TestUtils'
-import { assert, runFailedTests, specReporter, apiClient } from '@japa/preset-adonis'
+import { apiClient, assert, specReporter } from '@japa/preset-adonis'
 
 /*
 |--------------------------------------------------------------------------
@@ -20,7 +20,7 @@ import { assert, runFailedTests, specReporter, apiClient } from '@japa/preset-ad
 | Feel free to remove existing plugins or add more.
 |
 */
-export const plugins: Config['plugins'] = [assert(), runFailedTests(), apiClient()]
+export const plugins: Config['plugins'] = [assert(), apiClient()]
 
 /*
 |--------------------------------------------------------------------------
@@ -47,7 +47,11 @@ export const reporters: Config['reporters'] = [specReporter()]
 |
 */
 export const runnerHooks: Required<Pick<Config, 'setup' | 'teardown'>> = {
-  setup: [() => TestUtils.ace().loadCommands()],
+  setup: [
+    () => TestUtils.ace().loadCommands(),
+    () => TestUtils.db().migrate(),
+    () => TestUtils.db().seed(),
+  ],
   teardown: [],
 }
 
@@ -63,7 +67,7 @@ export const runnerHooks: Required<Pick<Config, 'setup' | 'teardown'>> = {
 | the HTTP server when it is a functional suite.
 */
 export const configureSuite: Config['configureSuite'] = (suite) => {
-  if (suite.name === 'functional') {
+  if (['functional', 'integration'].includes(suite.name)) {
     suite.setup(() => TestUtils.httpServer().start())
   }
 }

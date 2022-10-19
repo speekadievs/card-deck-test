@@ -13,7 +13,7 @@
     "suit": "SPADES",
     "code": "2S",
     "decks": [
-      "SHORT"
+      "FULL"
     ]
   },
   {
@@ -21,7 +21,7 @@
     "suit": "SPADES",
     "code": "3S",
     "decks": [
-      "SHORT"
+      "FULL"
     ]
   },
   {
@@ -29,7 +29,7 @@
     "suit": "SPADES",
     "code": "4S",
     "decks": [
-      "SHORT"
+      "FULL"
     ]
   },
   {
@@ -37,7 +37,7 @@
     "suit": "SPADES",
     "code": "5S",
     "decks": [
-      "SHORT"
+      "FULL"
     ]
   },
   {
@@ -45,7 +45,7 @@
     "suit": "SPADES",
     "code": "6S",
     "decks": [
-      "SHORT"
+      "FULL"
     ]
   },
   {
@@ -125,7 +125,7 @@
     "suit": "CLUBS",
     "code": "2C",
     "decks": [
-      "SHORT"
+      "FULL"
     ]
   },
   {
@@ -133,7 +133,7 @@
     "suit": "CLUBS",
     "code": "3C",
     "decks": [
-      "SHORT"
+      "FULL"
     ]
   },
   {
@@ -141,7 +141,7 @@
     "suit": "CLUBS",
     "code": "4C",
     "decks": [
-      "SHORT"
+      "FULL"
     ]
   },
   {
@@ -149,7 +149,7 @@
     "suit": "CLUBS",
     "code": "5C",
     "decks": [
-      "SHORT"
+      "FULL"
     ]
   },
   {
@@ -157,7 +157,7 @@
     "suit": "CLUBS",
     "code": "6C",
     "decks": [
-      "SHORT"
+      "FULL"
     ]
   },
   {
@@ -237,7 +237,7 @@
     "suit": "DIAMONDS",
     "code": "2D",
     "decks": [
-      "SHORT"
+      "FULL"
     ]
   },
   {
@@ -245,7 +245,7 @@
     "suit": "DIAMONDS",
     "code": "3D",
     "decks": [
-      "SHORT"
+      "FULL"
     ]
   },
   {
@@ -253,7 +253,7 @@
     "suit": "DIAMONDS",
     "code": "4D",
     "decks": [
-      "SHORT"
+      "FULL"
     ]
   },
   {
@@ -261,7 +261,7 @@
     "suit": "DIAMONDS",
     "code": "5D",
     "decks": [
-      "SHORT"
+      "FULL"
     ]
   },
   {
@@ -269,7 +269,7 @@
     "suit": "DIAMONDS",
     "code": "6D",
     "decks": [
-      "SHORT"
+      "FULL"
     ]
   },
   {
@@ -349,7 +349,7 @@
     "suit": "HEARTS",
     "code": "2H",
     "decks": [
-      "SHORT"
+      "FULL"
     ]
   },
   {
@@ -357,7 +357,7 @@
     "suit": "HEARTS",
     "code": "3H",
     "decks": [
-      "SHORT"
+      "FULL"
     ]
   },
   {
@@ -365,7 +365,7 @@
     "suit": "HEARTS",
     "code": "4H",
     "decks": [
-      "SHORT"
+      "FULL"
     ]
   },
   {
@@ -373,7 +373,7 @@
     "suit": "HEARTS",
     "code": "5H",
     "decks": [
-      "SHORT"
+      "FULL"
     ]
   },
   {
@@ -381,7 +381,7 @@
     "suit": "HEARTS",
     "code": "6H",
     "decks": [
-      "SHORT"
+      "FULL"
     ]
   },
   {

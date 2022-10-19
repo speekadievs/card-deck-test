@@ -1,11 +1,9 @@
 declare module '@ioc:Repositories/DeckRepository' {
   import { RepositoryInterface } from 'Contracts/repositories/repository'
-  import Deck from 'App/DataObjects/Deck'
-
-  export type DeckType = 'FULL' | 'SHORT'
+  import Deck, { DeckType } from 'App/ValueObjects/Deck'
 
   export interface DeckRepositoryInterface extends RepositoryInterface {
-    create(type: DeckType, shuffled: boolean, cards): Promise<Deck>
+    store(deck: Deck): Promise<void>
 
     findByIdWithCardCount(id: string): Promise<Deck | null>
 

@@ -4,10 +4,8 @@ export default class AppProvider {
   constructor(protected app: ApplicationContract) {}
 
   public async register() {
-    const DeckModel = (await import('App/Models/Deck')).default
-    const DeckRepository = (await import('App/Repositories/DeckRepository')).default
-
-    this.app.container.bind('Repositories/DeckRepository', () => new DeckRepository(DeckModel))
+    await this.registerRepositories()
+    await this.registerServices()
   }
 
   public async boot() {
@@ -20,5 +18,20 @@ export default class AppProvider {
 
   public async shutdown() {
     // Cleanup, since app is going down
+  }
+
+  private async registerRepositories() {
+    const DeckModel = (await import('App/Models/Deck')).default
+    const DeckRepository = (await import('App/Repositories/DeckRepository')).default
+
+    this.app.container.bind('Repositories/DeckRepository', () => new DeckRepository(DeckModel))
+  }
+
+  private async registerServices() {
+    const DeckService = (await import('App/Services/DeckService')).default
+
+    this.app.container.bind('Services/DeckService', () => {
+      return new DeckService(this.app.container.use('Repositories/DeckRepository'))
+    })
   }
 }

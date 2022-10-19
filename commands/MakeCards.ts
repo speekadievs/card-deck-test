@@ -1,16 +1,7 @@
 import { BaseCommand } from '@adonisjs/core/build/standalone'
 
 import * as fs from 'fs'
-
-interface Card {
-  value: string
-  decks: string[]
-}
-
-interface FormattedCard extends Card {
-  suit: string
-  code: string
-}
+import { CardConfig, CardType } from 'Contracts/cards'
 
 export default class MakeCards extends BaseCommand {
   /**
@@ -41,30 +32,30 @@ export default class MakeCards extends BaseCommand {
 
   public suits: string[] = ['SPADES', 'CLUBS', 'DIAMONDS', 'HEARTS']
 
-  public cards: Card[] = [
+  public cards: CardType[] = [
     {
       value: 'ACE',
       decks: ['SHORT', 'FULL'],
     },
     {
       value: '2',
-      decks: ['SHORT'],
+      decks: ['FULL'],
     },
     {
       value: '3',
-      decks: ['SHORT'],
+      decks: ['FULL'],
     },
     {
       value: '4',
-      decks: ['SHORT'],
+      decks: ['FULL'],
     },
     {
       value: '5',
-      decks: ['SHORT'],
+      decks: ['FULL'],
     },
     {
       value: '6',
-      decks: ['SHORT'],
+      decks: ['FULL'],
     },
     {
       value: '7',
@@ -107,14 +98,14 @@ export default class MakeCards extends BaseCommand {
       )
 
       return total
-    }, [] as FormattedCard[])
+    }, [] as CardConfig[])
 
     this.logger.info('Saving the JSON')
 
     this.save(cards)
   }
 
-  private format(card: Card, suit: string) {
+  private format(card: CardType, suit: string) {
     return {
       value: card.value,
       suit: suit,
@@ -127,7 +118,7 @@ export default class MakeCards extends BaseCommand {
     return isNaN(+card) ? card.at(0)! + suit.at(0) : card + suit.at(0)
   }
 
-  private save(cards: FormattedCard[]) {
+  private save(cards: CardConfig[]) {
     const dir = `${process.cwd()}/database/config`
 
     fs.mkdirSync(dir, {
