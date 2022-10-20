@@ -1,11 +1,11 @@
 import { test } from '@japa/runner'
 import DeckModel from 'App/Models/Deck'
 import DeckFactory from 'App/Factories/DeckFactory'
-import Deck from 'App/ValueObjects/Deck'
+import Deck, { DeckType } from 'App/ValueObjects/Deck'
 
 test.group('Deck Factory', () => {
   test('can create deck value object', ({ assert }) => {
-    const deck = DeckFactory.create('deck-id', 'FULL', true)
+    const deck = DeckFactory.create('deck-id', DeckType.FULL, true)
 
     assert.instanceOf(deck, Deck)
     assert.equal(deck.deckId, 'deck-id')
@@ -17,7 +17,7 @@ test.group('Deck Factory', () => {
     const model = new DeckModel()
 
     model.id = 'deck-id'
-    model.type = 'FULL'
+    model.type = DeckType.FULL
     model.shuffled = true
 
     const deck = DeckFactory.createFromLucid(model)

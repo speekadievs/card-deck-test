@@ -6,6 +6,7 @@ import DeckFactory from 'App/Factories/DeckFactory'
 import Database from '@ioc:Adonis/Lucid/Database'
 import CardFactory from 'App/Factories/CardFactory'
 import Card from 'App/ValueObjects/Card'
+import { validate as uuidValidate } from 'uuid'
 
 export default class DeckRepository
   extends Repository<typeof DeckModel>
@@ -42,6 +43,10 @@ export default class DeckRepository
   }
 
   public async findById(deckId: string): Promise<Deck | null> {
+    if (!uuidValidate(deckId)) {
+      return null
+    }
+
     const deck = await this.getModel().query().where('id', deckId).first()
 
     if (!deck) {
@@ -52,6 +57,10 @@ export default class DeckRepository
   }
 
   public async findByIdWithCardCount(deckId: string): Promise<Deck | null> {
+    if (!uuidValidate(deckId)) {
+      return null
+    }
+
     const deck = await this.getModel().query().where('id', deckId).withCount('cards').first()
 
     if (!deck) {
@@ -62,6 +71,10 @@ export default class DeckRepository
   }
 
   public async findByIdWithCards(deckId: string): Promise<Deck | null> {
+    if (!uuidValidate(deckId)) {
+      return null
+    }
+
     const deck = await this.getModel().query().where('id', deckId).preload('cards').first()
 
     if (!deck) {

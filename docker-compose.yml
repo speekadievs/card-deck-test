@@ -1,0 +1,40 @@
+version: '3.3'
+
+services:
+  nginx:
+    image: card-test-nginx
+    container_name: card-test-nginx
+    build:
+      context: .
+      dockerfile: ./etc/docker/nginx.dockerfile
+    env_file: .env
+    restart: always
+    ports:
+      - '80:80'
+
+  node:
+    image: card-test-node
+    container_name: card-test-node
+    build:
+      context: .
+      dockerfile: ./etc/docker/node.dockerfile
+    restart: always
+    env_file: .env
+
+  postgresql:
+    container_name: card-test-db
+    image: postgres:13-alpine
+    restart: always
+    env_file: .env
+    environment:
+      POSTGRES_DB: ${PG_DB_NAME}
+      POSTGRES_USER: ${PG_USER}
+      POSTGRES_PASSWORD: ${PG_PASSWORD}
+    volumes:
+      - postgresql-volume:/var/lib/postgresql/data
+    ports:
+      - '5432:5432'
+
+
+volumes:
+  postgresql-volume:

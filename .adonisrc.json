@@ -25,6 +25,12 @@
   "aceProviders": [
     "@adonisjs/repl"
   ],
+  "metaFiles": [
+    {
+      "pattern": "database/config/**",
+      "reloadServer": false
+    }
+  ],
   "tests": {
     "suites": [
       {
