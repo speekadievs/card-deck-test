@@ -28,10 +28,14 @@ export default class AppProvider {
   }
 
   private async registerServices() {
+    const CardService = (await import('App/Services/CardService')).default
     const DeckService = (await import('App/Services/DeckService')).default
 
     this.app.container.bind('Services/DeckService', () => {
-      return new DeckService(this.app.container.use('Repositories/DeckRepository'))
+      return new DeckService(
+        this.app.container.use('Repositories/DeckRepository'),
+        new CardService()
+      )
     })
   }
 }

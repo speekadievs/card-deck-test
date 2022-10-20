@@ -9,6 +9,10 @@ export default class extends BaseSchema {
 
       table.uuid('deck_id').references('id').inTable('decks').onDelete('CASCADE')
 
+      table.increments('order', {
+        primaryKey: false,
+      })
+
       table.string('value', 11)
       table.string('suit', 11)
       table.string('code', 3)

@@ -5,12 +5,13 @@ import Deck from 'App/ValueObjects/Deck'
 import DeckFactory from 'App/Factories/DeckFactory'
 import Database from '@ioc:Adonis/Lucid/Database'
 import CardFactory from 'App/Factories/CardFactory'
+import Card from 'App/ValueObjects/Card'
 
 export default class DeckRepository
   extends Repository<typeof DeckModel>
   implements DeckRepositoryInterface
 {
-  public async store(deck: Deck): Promise<void> {
+  public async store(deck: Deck, cards?: Card[]): Promise<void> {
     await Database.transaction(async (trx) => {
       // We use the generic query builder here as using the Lucid ORM produces individual insert
       // queries for the cards
@@ -21,25 +22,27 @@ export default class DeckRepository
         shuffled: deck.shuffled,
       })
 
-      await trx
-        .insertQuery()
-        .table(this.getModel().$getRelation('cards').relatedModel().table)
-        .multiInsert(
-          deck.cards.map((card) => ({
-            id: card.id,
-            deck_id: card.deckId,
-            value: card.value,
-            suit: card.suit,
-            code: card.code,
-          }))
-        )
+      if (cards && cards.length) {
+        await trx
+          .insertQuery()
+          .table(this.getModel().$getRelation('cards').relatedModel().table)
+          .multiInsert(
+            cards.map((card) => ({
+              id: card.id,
+              deck_id: card.deckId,
+              value: card.value,
+              suit: card.suit,
+              code: card.code,
+            }))
+          )
+      }
 
       await trx.commit()
     })
   }
 
-  public async findByIdWithCardCount(id: string) {
-    const deck = await this.getModel().query().where('id', id).withCount('cards').first()
+  public async findById(deckId: string): Promise<Deck | null> {
+    const deck = await this.getModel().query().where('id', deckId).first()
 
     if (!deck) {
       return null
@@ -48,13 +51,48 @@ export default class DeckRepository
     return DeckFactory.createFromLucid(deck)
   }
 
-  public async findByIdWithCards(id: string) {
-    const deck = await this.getModel().query().where('id', id).preload('cards').first()
+  public async findByIdWithCardCount(deckId: string): Promise<Deck | null> {
+    const deck = await this.getModel().query().where('id', deckId).withCount('cards').first()
+
+    if (!deck) {
+      return null
+    }
+
+    return DeckFactory.createFromLucid(deck)
+  }
+
+  public async findByIdWithCards(deckId: string): Promise<Deck | null> {
+    const deck = await this.getModel().query().where('id', deckId).preload('cards').first()
 
     if (!deck) {
       return null
     }
 
     return DeckFactory.createFromLucid(deck, deck.cards.map(CardFactory.createFromLucid))
+  }
+
+  public async deleteAndReturnCards(deckId: string, amount: number): Promise<Card[]> {
+    const cards = await Database.transaction(async (trx) => {
+      const table = this.getModel().$getRelation('cards').relatedModel().table
+
+      const cards = await trx
+        .from(table)
+        .forUpdate()
+        .where('deck_id', deckId)
+        .orderBy('order', 'asc')
+        .limit(amount)
+
+      await trx
+        .from(this.getModel().$getRelation('cards').relatedModel().table)
+        .whereIn(
+          'id',
+          cards.map((card) => card.id)
+        )
+        .delete()
+
+      return cards
+    })
+
+    return (cards || []).map((card) => CardFactory.createFromLucid(card))
   }
 }

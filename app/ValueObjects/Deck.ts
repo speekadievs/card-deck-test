@@ -18,7 +18,9 @@ export default class Deck extends ValueObject<Deck> {
     return {
       deckId: this.deckId,
       type: this.type,
-      shuffled: this.shuffled,
+
+      // SQLite will return this as a number, so we convert it to a boolean here
+      shuffled: !!this.shuffled,
 
       remaining: this.remaining || 0,
       cards: this.cards?.map((card) => card.serialize()) || undefined,

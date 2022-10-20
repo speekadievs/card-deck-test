@@ -10,6 +10,9 @@ export default class Card extends BaseModel {
   public deckId: string
 
   @column()
+  public order: number
+
+  @column()
   public value: string
 
   @column()

@@ -6,6 +6,7 @@ import { CardConfig } from 'Contracts/cards'
 import { v4 as uuidv4 } from 'uuid'
 import DeckFactory from 'App/Factories/DeckFactory'
 import CardFactory from 'App/Factories/CardFactory'
+import Card from 'App/ValueObjects/Card'
 
 export default class DeckService implements DeckServiceInterface {
   constructor(
@@ -14,34 +15,39 @@ export default class DeckService implements DeckServiceInterface {
   ) {}
 
   public async create(type: DeckType, shuffled: boolean): Promise<Deck> {
-    let cards: CardConfig[]
+    let items: CardConfig[]
 
     switch (type) {
       case DeckType.FULL:
-        cards = this.cardService.getFullDeckCards()
+        items = this.cardService.getFullDeckCards()
         break
       case DeckType.SHORT:
-        cards = this.cardService.getShortDeckCards()
+        items = this.cardService.getShortDeckCards()
         break
     }
 
     if (shuffled) {
-      cards = this.cardService.shuffle(cards)
+      items = this.cardService.shuffle(items)
     }
 
     const deckId = uuidv4()
 
-    const deck = DeckFactory.create(
-      deckId,
-      type,
-      shuffled,
-      cards.map((card) => {
-        return CardFactory.create(uuidv4(), deckId, card.value, card.suit, card.code)
-      })
-    )
+    const deck = DeckFactory.create(deckId, type, shuffled)
 
-    await this.repository.store(deck)
+    const cards = items.map((card) => {
+      return CardFactory.create(uuidv4(), deckId, card.value, card.suit, card.code)
+    })
+
+    await this.repository.store(deck, cards)
+
+    deck.remaining = cards.length
 
     return deck
+  }
+
+  public async draw(deck: Deck, amount: number): Promise<Card[]> {
+    const cards = this.repository.deleteAndReturnCards(deck.deckId, amount)
+
+    return cards
   }
 }
